@@ -11,3 +11,15 @@
 .nav-buttons:hover {
   color: grey;
 }
+
+.gold {
+    color: rgb(224, 191, 0)
+}
+
+.silver {
+    color: silver;
+}
+
+.bronze {
+    color: #cd7f32
+}
