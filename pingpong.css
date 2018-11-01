@@ -7,19 +7,24 @@
 }
 .nav-buttons {
   color: black;
+  background-color: lightgrey;
+  border: 1px solid grey;
+  border-bottom: 0;
+  border-top-right-radius: 0.5rem
 }
 .nav-buttons:hover {
-  color: grey;
+  color: lightgrey;
+  background-color: grey;
 }
 
 .gold {
-    color: rgb(224, 191, 0)
+  color: rgb(224, 191, 0);
 }
 
 .silver {
-    color: silver;
+  color: silver;
 }
 
 .bronze {
-    color: #cd7f32
+  color: #cd7f32;
 }
