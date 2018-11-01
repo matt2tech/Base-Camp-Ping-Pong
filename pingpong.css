@@ -1,3 +1,13 @@
 #pingpong-nav {
-    background-image: url(https://cdn.anovaculinary.com/wp-content/uploads/2017/06/IMG_8281.jpg)
+  background-image: url(https://cdn.anovaculinary.com/wp-content/uploads/2017/06/IMG_8281.jpg);
+}
+
+.hide {
+  display: none !important;
+}
+.nav-buttons {
+  color: black;
+}
+.nav-buttons:hover {
+  color: grey;
 }
