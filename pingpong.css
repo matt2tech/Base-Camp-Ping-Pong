@@ -7,7 +7,7 @@
   background-color: lightgrey;
   border: 1px solid grey;
   border-bottom: 0;
-  border-top-right-radius: 0.5rem
+  border-top-right-radius: 0.5rem;
 }
 .nav-buttons:hover {
   color: lightgrey;
@@ -15,15 +15,18 @@
 }
 
 .gold {
-  color: rgb(224, 191, 0);
+  color: rgb(224, 190, 0);
+  font-weight: bolder;
 }
 
 .silver {
   color: silver;
+  font-weight: bolder;
 }
 
 .bronze {
   color: #cd7f32;
+  font-weight: bolder;
 }
 
 .nav-section:not(:target) {
