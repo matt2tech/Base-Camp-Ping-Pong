@@ -86,11 +86,20 @@
             <button id='userBtn' class='btn btn-success mb-3' type='button'>Start New Game</button>
         </div>
         <form id='playerForms' hidden class="playerForms">
-            <input class="playeroneInput mr-1 mb-3" type="text" placeholder="Player 1 ID" required>
-            <input class="playertwoInput" type="text" placeholder="Player 2 ID" required>
-            <button type="submit" class="btn btn-success">Start</button>
+            <input id="playerOneId" class="playeroneInput mr-1 mb-3" type="text" placeholder="Player 1 ID" required>
+            <input id="playerTwoId" class="playertwoInput" type="text" placeholder="Player 2 ID" required>
+            <button id="startGameBtn" type="submit" class="btn btn-success">Start</button>
         </form>
         <p class="bg-greyish border border-secondary p-3 rounded" hidden id='userList'></p>
+        <div class="scoreArea border border-secondary rounded">
+            <h3 class="scoreHeader text-center"></h3>
+            <button id="leftBtn" class="score-button btn btn-success">Add A Point</button>
+            <button id="rightBtn" class="score-button btn btn-success">Add A Point</button>
+            <div>
+                <button id="finishBtn" class="btn btn-danger mt-1 w-100">Fatality</button>
+            </div>
+        </div>
+
     </section>
     <div>
         <script src="pong.js"></script>
