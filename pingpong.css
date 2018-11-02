@@ -33,3 +33,13 @@
 .nav-section:not(:target) {
   display: none !important;
 }
+
+.bg-greyish {
+  background-color: rgb(247, 250, 249);
+}
+.hidden {
+  display: none;
+}
+.shown {
+  display: inline;
+}
