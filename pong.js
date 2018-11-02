@@ -30,8 +30,8 @@ function login() {
       username = document.getElementById("usernameLogin").value;
       password = document.getElementById("passwordLogin").value;
       postData("https://bcca-pingpong.herokuapp.com/api/login/", {
-        name: username,
-        pass: password
+        username: username,
+        password: password
       })
         .then(data => console.log(JSON.stringify(data)))
         .catch(error => console.error(error));
