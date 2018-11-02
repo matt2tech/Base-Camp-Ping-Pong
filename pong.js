@@ -3,9 +3,11 @@ function signUp() {
   btn.addEventListener("click", function() {
     username = document.getElementById("usernameSignUp").value;
     password = document.getElementById("passwordSignup").value;
+    repeat = document.getElementById('passwordRepeatSignUp').value
     postData("https://bcca-pingpong.herokuapp.com/api/register/", {
-      name: username,
-      pass: password
+      username: username,
+      password: password,
+      password_repeat: repeat
     })
       .then(data => console.log(JSON.stringify(data)))
       .catch(error => console.error(error));
@@ -15,7 +17,6 @@ function signUp() {
 function postData(url = "", data = {}) {
   return fetch(url, {
     method: "Post",
-    mode: 'cors',
     headers: {
       "Content-Type": "application/json; charset=utf-8"
     },
