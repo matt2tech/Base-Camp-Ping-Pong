@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>BCCA Ping Pong</title>
     <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/pretty-office-part-7-simple-style/256/Table-tennis.png"
         type="shortcut icon">
     <link rel="stylesheet" href="pingpong.css">
@@ -13,13 +13,13 @@
         crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-greyish">
     <nav id='pingpong-nav' class='mb-3 border-bottom border-secondary'>
         <div>
-            <h1 class='pl-2'>Base Camp Coding Academy Ping Pong</h1>
+            <h2 class='pl-2'>Base Camp Coding Academy Ping Pong</h2>
         </div>
         <div class='d-flex'>
-            <a href='#home' class='nav-buttons ml-1 pl-2 pr-2'>Home</a>
+            <a href='#home' class='nav-buttons ml-4 pl-2 pr-2'>Home</a>
             <a href='#signup' class='nav-buttons ml-1 pl-2 pr-2'>Sign-Up</a>
             <a href='#login' class='nav-buttons ml-1 pl-2 pr-2'>Log-In</a>
             <a href='#profile' class='nav-buttons ml-1 pl-2 pr-2'>Profile</a>
@@ -70,21 +70,22 @@
                 <hr class='border-secondary'>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Username</label>
-                    <input type="text" class="form-control" id="usernameLogin" aria-describedby="emailHelp" placeholder="Enter Username">
+                    <input type="text" class="form-control" required id="usernameLogin" aria-describedby="emailHelp"
+                        placeholder="Enter Username">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="passwordLogin" placeholder="Password">
+                    <input type="password" class="form-control" id="passwordLogin" required placeholder="Password">
                 </div>
-                <button id='loginBtn' type="submit" class="btn btn-primary">Submit</button>
+                <button id='loginBtn' onsubmit="seeUsers()" type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </section>
     <section id='profile' class="d-flex flex-column align-items-center justify-content-center mb-3 mt-5 nav-section">
         <div>
-            <button id='userBtn' type='button'>Press me</button>
+            <button id='userBtn' class='btn btn-primary' type='button'>User List</button>
         </div>
-        <p id='userList'></p>
+        <p class="bg-greyish border border-secondary p-3 rounded" hidden id='userList'></p>
     </section>
     <div>
         <script src="pong.js"></script>
