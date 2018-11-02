@@ -81,10 +81,15 @@
             </form>
         </div>
     </section>
-    <section id='profile' class="d-flex flex-column align-items-center justify-content-center mb-3 mt-5 nav-section">
+    <section id='profile' class="d-flex flex-column align-items-center justify-content-around mb-3 mt-5 nav-section">
         <div>
-            <button id='userBtn' class='btn btn-primary' type='button'>User List</button>
+            <button id='userBtn' class='btn btn-success mb-3' type='button'>Start New Game</button>
         </div>
+        <form id='playerForms' hidden class="playerForms">
+            <input class="playeroneInput mr-1 mb-3" type="text" placeholder="Player 1 ID" required>
+            <input class="playertwoInput" type="text" placeholder="Player 2 ID" required>
+            <button type="submit" class="btn btn-success">Start</button>
+        </form>
         <p class="bg-greyish border border-secondary p-3 rounded" hidden id='userList'></p>
     </section>
     <div>
