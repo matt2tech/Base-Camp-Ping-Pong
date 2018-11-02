@@ -2,9 +2,6 @@
   background-image: url(https://cdn.anovaculinary.com/wp-content/uploads/2017/06/IMG_8281.jpg);
 }
 
-.hide {
-  display: none !important;
-}
 .nav-buttons {
   color: black;
   background-color: lightgrey;
@@ -27,4 +24,8 @@
 
 .bronze {
   color: #cd7f32;
+}
+
+.nav-section:not(:target) {
+  display: none !important;
 }
