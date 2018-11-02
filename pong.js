@@ -54,6 +54,19 @@ function seeData(url = "") {
     }
   }).then(response => response.json());
 }
+function startGame(url = "") {
+  return fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      Authorization: `Token ${PAGE_DATA.token}`
+    }
+  }).then(response => response.json());
+}
+
+function statingGame() {
+
+}
 
 function seeUsers() {
   btn = document.getElementById("userBtn");
@@ -63,6 +76,7 @@ function seeUsers() {
       console.log(JSON.stringify(data));
       PAGE_DATA.users = data;
       PAGE_DATA.users.forEach(user => {
+        document.getElementById('playerForms').hidden = false;
         users.hidden = false;
         users.innerText += `ID: ${user.id} \n\tUser: ${user.username}\n\n`;
         btn.style.display = "none";
@@ -72,7 +86,7 @@ function seeUsers() {
   });
 }
 
-window.location = '#home'
+// window.location = '#home'
 
 signUp();
 login();
