@@ -15,6 +15,7 @@ function signUp() {
 function postData(url = "", data = {}) {
   return fetch(url, {
     method: "Post",
+    mode: 'cors',
     headers: {
       "Content-Type": "application/json; charset=utf-8"
     },
@@ -22,4 +23,19 @@ function postData(url = "", data = {}) {
   }).then(response => response.json());
 }
 
+function login() {
+    btn = document.getElementById("loginBtn");
+    btn.addEventListener("click", function() {
+      username = document.getElementById("usernameLogin").value;
+      password = document.getElementById("passwordLogin").value;
+      postData("https://bcca-pingpong.herokuapp.com/api/login/", {
+        name: username,
+        pass: password
+      })
+        .then(data => console.log(JSON.stringify(data)))
+        .catch(error => console.error(error));
+    });
+  }
+
 signUp()
+login()
