@@ -141,6 +141,8 @@ function endGame() {
             console.log(JSON.stringify(data));
         });
     });
+    document.getElementById("leftScoreBtn").innerText = 0;
+    document.getElementById("rightScoreBtn").innerText = 0;
 }
 
 function winnerWinnerChickenDinner() {
