@@ -41,7 +41,6 @@ function login() {
                 PAGE_DATA.token = data.token;
             })
             .catch(error => console.error(error));
-        window.location = "#profile";
     });
 }
 
@@ -54,9 +53,9 @@ function seeData(url = "") {
         }
     }).then(response => response.json());
 }
-function postGame(url = "", data = {}) {
+function postGame(url = "", data = {}, method = "".toUpperCase()) {
     return fetch(url, {
-        method: "POST",
+        method: method,
         headers: {
             "Content-Type": "application/json; charset=utf-8",
             Authorization: `Token ${PAGE_DATA.token}`
@@ -70,10 +69,14 @@ function startingGame() {
     var playerTwo = document.getElementById("playerTwoId").value;
     var startBtn = document.getElementById("startGameBtn");
     startBtn.addEventListener("click", function() {
-        postGame("https://bcca-pingpong.herokuapp.com/api/new-game/", {
-            player_1: playerOne,
-            player_2: playerTwo
-        })
+        postGame(
+            "https://bcca-pingpong.herokuapp.com/api/new-game/",
+            {
+                player_1: playerOne,
+                player_2: playerTwo
+            },
+            "POST"
+        )
             .then(data => {
                 console.log(JSON.stringify(data));
                 PAGE_DATA.game = data;
@@ -127,16 +130,39 @@ function endGame() {
     finishBtn.addEventListener("click", function() {
         document.getElementById("scoreArea").hidden = true;
         document.getElementById("userBtn").hidden = false;
+        winnerWinnerChickenDinner()
         postGame(
             `https://bcca-pingpong.herokuapp.com/api/score-game/${
                 PAGE_DATA.game.id
             }/`,
-            { points: PAGE_DATA.game.points }
+            {winner: PAGE_DATA.winner, loser: PAGE_DATA.loser},
+            "PUT"
         ).then(data => {
             console.log(JSON.stringify(data));
         });
     });
 }
+
+function winnerWinnerChickenDinner() {
+    var playerOne = 0;
+    var playerTwo = 0;
+    var points = PAGE_DATA.game.points
+    for (var i = 0; i < points.length; ++i) {
+        if (points[i] == PAGE_DATA.game.player_1) {
+            playerOne++;
+        } else {
+            playerTwo++;
+        }
+    }
+    if (playerOne > playerTwo) {
+        PAGE_DATA.winner = PAGE_DATA.game.player_1;
+        PAGE_DATA.loser = PAGE_DATA.game.player_2;
+    } else {
+        PAGE_DATA.winner = PAGE_DATA.game.player_2;
+        PAGE_DATA.loser = PAGE_DATA.game.player_1;
+    }
+}
+
 window.location = "#login";
 
 signUp();
