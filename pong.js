@@ -121,7 +121,7 @@ function keepingScore() {
   })
 }
 
-// window.location = '#home'
+window.location = '#login'
 
 signUp();
 login();
