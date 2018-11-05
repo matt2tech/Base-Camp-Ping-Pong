@@ -1,7 +1,7 @@
 var PAGE_DATA = {};
 
 function signUp() {
-    btn = document.getElementById("signUpBtn");
+    var btn = document.getElementById("signUpBtn");
     btn.addEventListener("click", function() {
         username = document.getElementById("usernameSignUp").value;
         password = document.getElementById("passwordSignup").value;
@@ -28,7 +28,7 @@ function postData(url = "", data = {}) {
 }
 
 function login() {
-    btn = document.getElementById("loginBtn");
+    var btn = document.getElementById("loginBtn");
     btn.addEventListener("click", function() {
         username = document.getElementById("usernameLogin").value;
         password = document.getElementById("passwordLogin").value;
@@ -66,9 +66,9 @@ function postGame(url = "", data = {}) {
 }
 
 function startingGame() {
-    playerOne = document.getElementById("playerOneId").value;
-    playerTwo = document.getElementById("playerTwoId").value;
-    startBtn = document.getElementById("startGameBtn");
+    var playerOne = document.getElementById("playerOneId").value;
+    var playerTwo = document.getElementById("playerTwoId").value;
+    var startBtn = document.getElementById("startGameBtn");
     startBtn.addEventListener("click", function() {
         postGame("https://bcca-pingpong.herokuapp.com/api/new-game/", {
             player_1: playerOne,
@@ -87,8 +87,8 @@ function startingGame() {
 }
 
 function seeUsers() {
-    btn = document.getElementById("userBtn");
-    users = document.getElementById("userList");
+    var btn = document.getElementById("userBtn");
+    var users = document.getElementById("userList");
     btn.addEventListener("click", function() {
         seeData("https://bcca-pingpong.herokuapp.com/api/users/").then(data => {
             console.log(JSON.stringify(data));
@@ -107,8 +107,8 @@ function seeUsers() {
 }
 
 function keepingScore() {
-    leftBtn = document.getElementById("leftScoreBtn");
-    rightBtn = document.getElementById("rightScoreBtn");
+    var leftBtn = document.getElementById("leftScoreBtn");
+    var rightBtn = document.getElementById("rightScoreBtn");
     leftBtn.addEventListener("click", function() {
         leftScore = Number(leftBtn.innerText) + 1;
         leftBtn.innerText = leftScore;
@@ -123,7 +123,7 @@ function keepingScore() {
 }
 
 function endGame() {
-    finishBtn = document.getElementById("finishBtn");
+    var finishBtn = document.getElementById("finishBtn");
     finishBtn.addEventListener("click", function() {
         document.getElementById("scoreArea").hidden = true;
         document.getElementById("userBtn").hidden = false;
