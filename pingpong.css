@@ -44,7 +44,12 @@
   display: inline;
 }
 
+#scoreArea {
+  width: 50%;
+  height: 250px;
+}
+
 .score-button {
-  height: 200px;
-  width: 200px
+  width: 75%;
+  height: 100px;
 }
