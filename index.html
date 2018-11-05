@@ -85,12 +85,14 @@
         <div>
             <button id='userBtn' class='btn btn-success mb-3' type='button'>Start New Game</button>
         </div>
-        <form id='playerForms' hidden class="playerForms mb-3">
-            <input id="playerOneId" type="text" placeholder="Player 1 ID" required>
-            <input id="playerTwoId" type="text" placeholder="Player 2 ID" required>
-            <button id="startGameBtn" type="submit" class="btn btn-success">Start</button>
-        </form>
-        <p class="bg-greyish border border-secondary p-3 rounded" hidden id='userList'></p>
+        <div id='startingPoint'>
+            <form id='playerForms' hidden class="playerForms mb-3">
+                <input id="playerOneId" type="text" placeholder="Player 1 ID" required>
+                <input id="playerTwoId" type="text" placeholder="Player 2 ID" required>
+                <button id="startGameBtn" type="submit" class="btn btn-success">Start</button>
+            </form>
+            <p class="bg-greyish border border-secondary p-3 rounded" hidden id='userList'></p>
+        </div>
         <div id='scoreArea' hidden>
             <div class='d-flex'>
                 <h3 id='scoreHeader' class="d-flex"></h3>
