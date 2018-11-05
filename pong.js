@@ -54,7 +54,7 @@ function seeData(url = "") {
         }
     }).then(response => response.json());
 }
-function startGame(url = "", data = {}) {
+function postGame(url = "", data = {}) {
     return fetch(url, {
         method: "POST",
         headers: {
@@ -70,7 +70,7 @@ function startingGame() {
     playerTwo = document.getElementById("playerTwoId").value;
     startBtn = document.getElementById("startGameBtn");
     startBtn.addEventListener("click", function() {
-        startGame("https://bcca-pingpong.herokuapp.com/api/new-game/", {
+        postGame("https://bcca-pingpong.herokuapp.com/api/new-game/", {
             player_1: playerOne,
             player_2: playerTwo
         })
@@ -107,30 +107,37 @@ function seeUsers() {
 }
 
 function keepingScore() {
-  leftBtn = document.getElementById('leftScoreBtn');
-  rightBtn = document.getElementById('rightScoreBtn');
-  leftBtn.addEventListener('click', function () {
-    leftScore = Number(leftBtn.innerText) + 1;
-    leftBtn.innerText = leftScore;
-    PAGE_DATA.game.points.push(PAGE_DATA.game.player_1)
-  });
-  rightBtn.addEventListener('click', function() {
-    rightScore = Number(rightBtn.innerText) + 1;
-    rightBtn.innerText = rightScore;
-    PAGE_DATA.game.points.push(PAGE_DATA.game.player_2)
-  });
-  endGame()
+    leftBtn = document.getElementById("leftScoreBtn");
+    rightBtn = document.getElementById("rightScoreBtn");
+    leftBtn.addEventListener("click", function() {
+        leftScore = Number(leftBtn.innerText) + 1;
+        leftBtn.innerText = leftScore;
+        PAGE_DATA.game.points.push(PAGE_DATA.game.player_1);
+    });
+    rightBtn.addEventListener("click", function() {
+        rightScore = Number(rightBtn.innerText) + 1;
+        rightBtn.innerText = rightScore;
+        PAGE_DATA.game.points.push(PAGE_DATA.game.player_2);
+    });
+    endGame();
 }
 
 function endGame() {
-  finishBtn = document.getElementById('finishBtn');
-  finishBtn.addEventListener('click', function() {
-    document.getElementById('scoreArea').hidden = true;
-    document.getElementById('userBtn').hidden = false;
-  })
+    finishBtn = document.getElementById("finishBtn");
+    finishBtn.addEventListener("click", function() {
+        document.getElementById("scoreArea").hidden = true;
+        document.getElementById("userBtn").hidden = false;
+        postGame(
+            `https://bcca-pingpong.herokuapp.com/api/score-game/${
+                PAGE_DATA.game.id
+            }/`,
+            { points: PAGE_DATA.game.points }
+        ).then(data => {
+            console.log(JSON.stringify(data));
+        });
+    });
 }
-
-window.location = '#login'
+window.location = "#login";
 
 signUp();
 login();
