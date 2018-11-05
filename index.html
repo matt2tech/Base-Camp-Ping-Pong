@@ -85,18 +85,18 @@
         <div>
             <button id='userBtn' class='btn btn-success mb-3' type='button'>Start New Game</button>
         </div>
-        <form id='playerForms' hidden class="playerForms">
-            <input id="playerOneId" class="playeroneInput mr-1 mb-3" type="text" placeholder="Player 1 ID" required>
-            <input id="playerTwoId" class="playertwoInput" type="text" placeholder="Player 2 ID" required>
+        <form id='playerForms' hidden class="playerForms mb-3">
+            <input id="playerOneId" type="text" placeholder="Player 1 ID" required>
+            <input id="playerTwoId" type="text" placeholder="Player 2 ID" required>
             <button id="startGameBtn" type="submit" class="btn btn-success">Start</button>
         </form>
         <p class="bg-greyish border border-secondary p-3 rounded" hidden id='userList'></p>
-        <div class="scoreArea border border-secondary rounded">
-            <h3 class="scoreHeader text-center"></h3>
+        <div id='scoreArea' class="border border-secondary rounded" hidden>
+            <h3 id='scoreHeader' class="text-center"></h3>
             <button id="leftBtn" class="score-button btn btn-success">Add A Point</button>
             <button id="rightBtn" class="score-button btn btn-success">Add A Point</button>
             <div>
-                <button id="finishBtn" class="btn btn-danger mt-1 w-100">Fatality</button>
+                <button id="finishBtn" class="btn btn-danger mt-1 w-100">Finish</button>
             </div>
         </div>
 
