@@ -99,7 +99,7 @@ function seeUsers() {
                 users.innerText += `ID: ${user.id} \n\tUser: ${
                     user.username
                 }\n\n`;
-                btn.style.display = "none";
+                btn.hidden = true;
             });
             console.log(PAGE_DATA);
         });
@@ -118,6 +118,15 @@ function keepingScore() {
     rightScore = Number(rightBtn.innerText) + 1;
     rightBtn.innerText = rightScore;
     PAGE_DATA.game.points.push(PAGE_DATA.game.player_2)
+  });
+  endGame()
+}
+
+function endGame() {
+  finishBtn = document.getElementById('finishBtn');
+  finishBtn.addEventListener('click', function() {
+    document.getElementById('scoreArea').hidden = true;
+    document.getElementById('userBtn').hidden = false;
   })
 }
 
