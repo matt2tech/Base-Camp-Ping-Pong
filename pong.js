@@ -130,25 +130,25 @@ function endGame() {
     finishBtn.addEventListener("click", function() {
         document.getElementById("scoreArea").hidden = true;
         document.getElementById("userBtn").hidden = false;
-        winnerWinnerChickenDinner()
+        winnerWinnerChickenDinner();
         postGame(
             `https://bcca-pingpong.herokuapp.com/api/score-game/${
                 PAGE_DATA.game.id
             }/`,
-            {winner: PAGE_DATA.winner, loser: PAGE_DATA.loser},
+            { winner: PAGE_DATA.winner, loser: PAGE_DATA.loser },
             "PUT"
         ).then(data => {
             console.log(JSON.stringify(data));
         });
+        document.getElementById("leftScoreBtn").innerText = "0";
+        document.getElementById("rightScoreBtn").innerText = "0";
     });
-    document.getElementById("leftScoreBtn").innerText = 0;
-    document.getElementById("rightScoreBtn").innerText = 0;
 }
 
 function winnerWinnerChickenDinner() {
     var playerOne = 0;
     var playerTwo = 0;
-    var points = PAGE_DATA.game.points
+    var points = PAGE_DATA.game.points;
     for (var i = 0; i < points.length; ++i) {
         if (points[i] == PAGE_DATA.game.player_1) {
             playerOne++;
