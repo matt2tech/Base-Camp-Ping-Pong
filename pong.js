@@ -116,11 +116,13 @@ function keepingScore() {
         leftScore = Number(leftBtn.innerText) + 1;
         leftBtn.innerText = leftScore;
         PAGE_DATA.game.points.push(PAGE_DATA.game.player_1);
+        weHaveAWinner();
     });
     rightBtn.addEventListener("click", function() {
         rightScore = Number(rightBtn.innerText) + 1;
         rightBtn.innerText = rightScore;
         PAGE_DATA.game.points.push(PAGE_DATA.game.player_2);
+        weHaveAWinner();
     });
     endGame();
 }
@@ -142,6 +144,7 @@ function endGame() {
         });
         document.getElementById("leftScoreBtn").innerText = "0";
         document.getElementById("rightScoreBtn").innerText = "0";
+        weHaveAWinner();
     });
 }
 
@@ -162,6 +165,18 @@ function winnerWinnerChickenDinner() {
     } else {
         PAGE_DATA.winner = PAGE_DATA.game.player_2;
         PAGE_DATA.loser = PAGE_DATA.game.player_1;
+    }
+}
+
+function weHaveAWinner() {
+    rightBtn = document.getElementById('rightScoreBtn');
+    leftBtn = document.getElementById('leftScoreBtn');
+    if (Number(rightBtn.innerText) === 10 || Number(leftBtn.innerText) === 10) {
+        rightBtn.disabled = true;
+        leftBtn.disabled = true;
+    } else {
+        rightBtn.disabled = false;
+        leftBtn.disabled = false;
     }
 }
 
