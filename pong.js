@@ -112,15 +112,17 @@ function seeUsers() {
 function keepingScore() {
     var leftBtn = document.getElementById("leftScoreBtn");
     var rightBtn = document.getElementById("rightScoreBtn");
+    var leftScore = document.getElementById('leftScore');
+    var rightScore = document.getElementById('rightScore');
     leftBtn.addEventListener("click", function() {
-        leftScore = Number(leftBtn.innerText) + 1;
-        leftBtn.innerText = leftScore;
+        leftScoreValue = Number(leftScore.innerText) + 1;
+        leftScore.innerText = leftScoreValue;
         PAGE_DATA.game.points.push(PAGE_DATA.game.player_1);
         weHaveAWinner();
     });
     rightBtn.addEventListener("click", function() {
-        rightScore = Number(rightBtn.innerText) + 1;
-        rightBtn.innerText = rightScore;
+        rightScoreValue = Number(rightScore.innerText) + 1;
+        rightScore.innerText = rightScoreValue;
         PAGE_DATA.game.points.push(PAGE_DATA.game.player_2);
         weHaveAWinner();
     });
@@ -142,8 +144,8 @@ function endGame() {
         ).then(data => {
             console.log(JSON.stringify(data));
         });
-        document.getElementById("leftScoreBtn").innerText = "0";
-        document.getElementById("rightScoreBtn").innerText = "0";
+        document.getElementById("leftScore").innerText = "0";
+        document.getElementById("rightScore").innerText = "0";
         weHaveAWinner();
     });
 }
