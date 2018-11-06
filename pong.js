@@ -81,6 +81,7 @@ function startingGame() {
                 console.log(JSON.stringify(data));
                 PAGE_DATA.game = data;
                 console.log(PAGE_DATA);
+                nameFinder();
             })
             .catch(error => console.error(error));
         document.getElementById("playerForms").hidden = true;
@@ -112,8 +113,8 @@ function seeUsers() {
 function keepingScore() {
     var leftBtn = document.getElementById("leftScoreBtn");
     var rightBtn = document.getElementById("rightScoreBtn");
-    var leftScore = document.getElementById('leftScore');
-    var rightScore = document.getElementById('rightScore');
+    var leftScore = document.getElementById("leftScore");
+    var rightScore = document.getElementById("rightScore");
     leftBtn.addEventListener("click", function() {
         leftScoreValue = Number(leftScore.innerText) + 1;
         leftScore.innerText = leftScoreValue;
@@ -171,15 +172,34 @@ function winnerWinnerChickenDinner() {
 }
 
 function weHaveAWinner() {
-    rightBtn = document.getElementById('rightScoreBtn');
-    leftBtn = document.getElementById('leftScoreBtn');
-    if (Number(rightBtn.innerText) === 10 || Number(leftBtn.innerText) === 10) {
+    var rightBtn = document.getElementById("rightScoreBtn");
+    var leftBtn = document.getElementById("leftScoreBtn");
+    var rightScore = Number(document.getElementById('rightScore').innerText)
+    var leftScore = Number(document.getElementById('leftScore').innerText)
+    if (rightScore === 10 || leftScore === 10) {
         rightBtn.disabled = true;
         leftBtn.disabled = true;
     } else {
         rightBtn.disabled = false;
         leftBtn.disabled = false;
     }
+}
+
+function nameFinder() {
+    var playerOne = PAGE_DATA.game.player_1;
+    var playerTwo = PAGE_DATA.game.player_2;
+    var leftPlayer = document.getElementById("leftPlayer");
+    var rightPlayer = document.getElementById("rightPlayer");
+    PAGE_DATA.users.forEach(user => {
+        if (user.id === playerOne) {
+            leftPlayer.innerText = user.username;
+        }
+    });
+    PAGE_DATA.users.forEach(user => {
+        if (user.id === playerTwo) {
+            rightPlayer.innerText = user.username;
+        }
+    });
 }
 
 window.location = "#login";
