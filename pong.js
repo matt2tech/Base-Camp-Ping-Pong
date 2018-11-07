@@ -39,6 +39,7 @@ function login() {
             .then(data => {
                 console.log(JSON.stringify(data));
                 PAGE_DATA.token = data.token;
+                isLoggedIn();
             })
             .catch(error => console.error(error));
     });
@@ -200,6 +201,16 @@ function nameFinder() {
             rightPlayer.innerText = user.username;
         }
     });
+}
+
+function isLoggedIn() {
+    if (PAGE_DATA.hasOwnProperty('token') && PAGE_DATA.token !== undefined) {
+        window.location = '#profile';
+        document.getElementById('loginBtn').disabled = true;
+        document.getElementById('signUpBtn').disabled = true;
+    } else {
+        alert('Invalid Username or Password');
+    }
 }
 
 window.location = "#login";
