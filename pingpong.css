@@ -63,4 +63,8 @@
   #scoreArea {
     width: 90%;
   }
+
+  #playerForms {
+    flex-direction: column;
+  }
 }

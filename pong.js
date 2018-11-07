@@ -85,7 +85,7 @@ function startingGame() {
                 nameFinder();
             })
             .catch(error => console.error(error));
-        document.getElementById("playerForms").hidden = true;
+        document.getElementById("startingPoint").hidden = true;
         document.getElementById("userList").hidden = true;
         document.getElementById("scoreArea").hidden = false;
     });
@@ -100,7 +100,7 @@ function seeUsers() {
             console.log(JSON.stringify(data));
             PAGE_DATA.users = data;
             PAGE_DATA.users.forEach(user => {
-                document.getElementById("playerForms").hidden = false;
+                document.getElementById("startingPoint").hidden = false;
                 users.hidden = false;
                 users.innerText += `ID: ${user.id} \n\tUser: ${
                     user.username
