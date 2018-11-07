@@ -95,6 +95,7 @@ function seeUsers() {
     var btn = document.getElementById("userBtn");
     var users = document.getElementById("userList");
     btn.addEventListener("click", function() {
+        needToLogin()
         seeData("https://bcca-pingpong.herokuapp.com/api/users/").then(data => {
             console.log(JSON.stringify(data));
             PAGE_DATA.users = data;
@@ -175,8 +176,8 @@ function winnerWinnerChickenDinner() {
 function weHaveAWinner() {
     var rightBtn = document.getElementById("rightScoreBtn");
     var leftBtn = document.getElementById("leftScoreBtn");
-    var rightScore = Number(document.getElementById('rightScore').innerText)
-    var leftScore = Number(document.getElementById('leftScore').innerText)
+    var rightScore = Number(document.getElementById("rightScore").innerText);
+    var leftScore = Number(document.getElementById("leftScore").innerText);
     if (rightScore === 10 || leftScore === 10) {
         rightBtn.disabled = true;
         leftBtn.disabled = true;
@@ -204,12 +205,21 @@ function nameFinder() {
 }
 
 function isLoggedIn() {
-    if (PAGE_DATA.hasOwnProperty('token') && PAGE_DATA.token !== undefined) {
-        window.location = '#profile';
-        document.getElementById('loginBtn').disabled = true;
-        document.getElementById('signUpBtn').disabled = true;
+    if (PAGE_DATA.hasOwnProperty("token") && PAGE_DATA.token !== undefined) {
+        window.location = "#profile";
+        document.getElementById("loginBtn").disabled = true;
+        document.getElementById("signUpBtn").disabled = true;
     } else {
-        alert('Invalid Username or Password');
+        alert("Invalid Username or Password");
+    }
+}
+
+function needToLogin() {
+    if (
+        PAGE_DATA.hasOwnProperty("token") === false ||
+        PAGE_DATA.token === undefined
+    ) {
+        alert("You're not logged in!");
     }
 }
 
